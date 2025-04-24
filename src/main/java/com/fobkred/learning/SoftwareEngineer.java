@@ -1,8 +1,15 @@
 package com.fobkred.learning;
 
-import java.util.Objects;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+import java.util.Objects;
+@Entity
 public class SoftwareEngineer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private  String name;
     private  int age;
@@ -10,7 +17,6 @@ public class SoftwareEngineer {
 
     public SoftwareEngineer() {
     }
-
     public SoftwareEngineer(int id,
                             String name,
                             int age,
