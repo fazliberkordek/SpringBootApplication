@@ -1,0 +1,21 @@
+package com.fobkred.learning;
+
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+/*
+* This will handle with the business logic
+* */
+@Service
+public class SoftwareEngineerService {
+    private final  SoftwareEngineerRepository softwareEngineerRepository;
+
+    public SoftwareEngineerService(
+            SoftwareEngineerRepository softwareEngineerRepository) {
+        this.softwareEngineerRepository = softwareEngineerRepository;
+    }
+    public List<SoftwareEngineer> getAllSoftwareEngineers(){
+        return softwareEngineerRepository.findAll();
+    }
+}
