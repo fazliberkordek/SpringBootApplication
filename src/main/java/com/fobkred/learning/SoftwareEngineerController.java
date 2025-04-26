@@ -1,6 +1,7 @@
 package com.fobkred.learning;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,6 +21,9 @@ public class SoftwareEngineerController {
 
         return softwareEngineerService.getAllSoftwareEngineers();
 
-
+    }
+    @PostMapping
+    public  void addNewSoftwareEngineer(SoftwareEngineer softwareEngineer){
+        softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
     }
 }
