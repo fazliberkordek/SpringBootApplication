@@ -32,4 +32,14 @@ public class SoftwareEngineerService {
     public void deleteSoftwareEngineer(Integer id) {
          softwareEngineerRepository.deleteById(id);
     }
+    public void updateSoftwareEngineer(Integer id, SoftwareEngineer updatedEngineer) {
+        SoftwareEngineer existingEngineer = softwareEngineerRepository.findById(id)
+                .orElseThrow(() -> new IllegalStateException("Software Engineer with id " + id + " does not exist"));
+
+        existingEngineer.setName(updatedEngineer.getName());
+        existingEngineer.setAge(updatedEngineer.getAge());
+        existingEngineer.setTechStack(updatedEngineer.getTechStack());
+
+        softwareEngineerRepository.save(existingEngineer);
+    }
 }

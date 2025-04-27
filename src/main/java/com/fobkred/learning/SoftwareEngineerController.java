@@ -35,4 +35,11 @@ public class SoftwareEngineerController {
         softwareEngineerService.deleteSoftwareEngineer(id);
         return ResponseEntity.ok("Deletion completed successfully");
     }
+    @PutMapping("{id}")
+    public void updateSoftwareEngineer(
+            @PathVariable Integer id,
+            @RequestBody SoftwareEngineer softwareEngineer) {
+        softwareEngineerService.updateSoftwareEngineer(id, softwareEngineer);
+    }
+
 }

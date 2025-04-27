@@ -4,7 +4,7 @@ GET http://localhost:8080
 GET http://localhost:8080/api/v1/software-engineers
 ###
 ###
-GET http://localhost:8080/api/v1/software-engineers/0
+GET http://localhost:8080/api/v1/software-engineers/1
 ###
 POST http://localhost:8080/api/v1/software-engineers
 Content-Type: application/json
@@ -16,3 +16,12 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:8080/api/v1/software-engineers/1
+
+###
+PUT http://localhost:8080/api/v1/software-engineers/1
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "techStack": "Java, Spring Boot, PostgreSQL"
+}
