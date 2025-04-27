@@ -2,3 +2,14 @@
 GET http://localhost:8080
 ###
 GET http://localhost:8080/api/v1/software-engineers
+###
+###
+GET http://localhost:8080/api/v1/software-engineers/0
+###
+POST http://localhost:8080/api/v1/software-engineers
+Content-Type: application/json
+
+{
+  "name": "Ana de armas",
+  "techStack": "React"
+}

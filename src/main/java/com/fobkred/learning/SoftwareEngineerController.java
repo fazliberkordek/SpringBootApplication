@@ -1,9 +1,6 @@
 package com.fobkred.learning;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +18,15 @@ public class SoftwareEngineerController {
 
         return softwareEngineerService.getAllSoftwareEngineers();
 
+    } @GetMapping("{id}")
+    public SoftwareEngineer getEngineerById(@PathVariable Integer id){
+
+        return softwareEngineerService.getSoftwareEngineerById(id);
+
     }
     @PostMapping
-    public  void addNewSoftwareEngineer(SoftwareEngineer softwareEngineer){
+    public  void addNewSoftwareEngineer(
+            @RequestBody SoftwareEngineer softwareEngineer){
         softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
     }
 }
