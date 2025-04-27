@@ -28,4 +28,8 @@ public class SoftwareEngineerService {
                 () -> new IllegalStateException("SoftwareEngineer not found")
         );
     }
+
+    public void deleteSoftwareEngineer(Integer id) {
+         softwareEngineerRepository.deleteById(id);
+    }
 }

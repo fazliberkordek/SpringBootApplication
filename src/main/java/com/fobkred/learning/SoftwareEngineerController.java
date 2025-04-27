@@ -1,5 +1,6 @@
 package com.fobkred.learning;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,5 +29,10 @@ public class SoftwareEngineerController {
     public  void addNewSoftwareEngineer(
             @RequestBody SoftwareEngineer softwareEngineer){
         softwareEngineerService.insertSoftwareEngineer(softwareEngineer);
+    }
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteSoftwareEngineer(@PathVariable Integer id){
+        softwareEngineerService.deleteSoftwareEngineer(id);
+        return ResponseEntity.ok("Deletion completed successfully");
     }
 }
