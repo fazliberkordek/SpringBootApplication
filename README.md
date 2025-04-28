@@ -51,6 +51,14 @@ docker-compose up --build
    ```bash
    http://localhost:8080
    ```
+
+Running the Docker Container:
+      After the image is built, you can run the container using:
+```bash
+docker run -p 8080:8080 learning-app
+```
+
+
 API Endpoints
 1.	Get All Software Engineers
 •	URL: /api/v1/software-engineers
