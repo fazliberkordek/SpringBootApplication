@@ -1,32 +1,36 @@
 package com.fobkred.learning;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
 import java.util.Objects;
+
 @Entity
 public class SoftwareEngineer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private  String name;
-    private  int age;
-    private  String techStack;
 
+    private String name;
+    private int age;
+    private String techStack;
+
+    @Column(columnDefinition = "TEXT")
+    private String learningPathRecommendation;
+
+    // Default constructor
     public SoftwareEngineer() {
     }
-    public SoftwareEngineer(int id,
-                            String name,
-                            int age,
-                            String techStack) {
+
+    // Constructor with parameters
+    public SoftwareEngineer(int id, String name, int age, String techStack, String learningPathRecommendation) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.techStack = techStack;
+        this.learningPathRecommendation = learningPathRecommendation;
     }
 
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -59,15 +63,24 @@ public class SoftwareEngineer {
         this.techStack = techStack;
     }
 
+    public String getLearningPathRecommendation() {
+        return learningPathRecommendation;
+    }
+
+    public void setLearningPathRecommendation(String learningPathRecommendation) {
+        this.learningPathRecommendation = learningPathRecommendation;
+    }
+
+    // Equals and hashCode for entity comparison
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         SoftwareEngineer that = (SoftwareEngineer) o;
-        return id == that.id && age == that.age && Objects.equals(name, that.name) && Objects.equals(techStack, that.techStack);
+        return id == that.id && age == that.age && Objects.equals(name, that.name) && Objects.equals(techStack, that.techStack) && Objects.equals(learningPathRecommendation, that.learningPathRecommendation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age, techStack);
+        return Objects.hash(id, name, age, techStack, learningPathRecommendation);
     }
 }
